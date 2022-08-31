@@ -58,3 +58,59 @@ app.post('/share-opinion', async function (req, res) {
 
 app.listen(3000);
  
+##
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-18-140 ~]$
+
+
+https://aws.amazon.com/amazon-linux-2/
+https://docs.github.com/pt/enterprise-server@3.2/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws
+[ec2-user@ip-172-31-18-140 ~]$ sudo yum update 
+[ec2-user@ip-172-31-18-140 ~]$ sudo yum install git 
+[ec2-user@ip-172-31-18-140 ~]$
+Is this ok [y/d/N]: y 
+[ec2-user@ip-172-31-18-140 ~]$ git clone https://github.com/academind/aws-demos.git
+[ec2-user@ip-172-31-18-140 ~]$ ls
+[ec2-user@ip-172-31-18-140 ~]$ cd aws 
+[ec2-user@ip-172-31-18-140 ~]$ cd aws-demos
+[ec2-user@ip-172-31-18-140 aws-demos ]$ ls
+[ec2-user@ip-172-31-18-140 aws-demos ]$ cd dynamic-website-basic/
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ ls
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ clear
+https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ . ~/.nvm/nvm.sh
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ nvm install --lts
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ ls
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ npm install
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ node app.js
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ sudo mkdir -p /demo/data 
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ echo ‘{“topics” : []}’ | sude tee “/demo/data/data-storage.json” 
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ sudo groupadd www
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ sudo usermod -a -G www ec2-user
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ exit 
+ 
+[ec2-user@ip-172-31-18-140 ~]$ chown -R root:www /demo/data 
+[ec2-user@ip-172-31-18-140 ~]$ sudo  chown -R root:www /demo/data
+[ec2-user@ip-172-31-18-140 ~]$ sudo chmod 2775 /demo/data 
+[ec2-user@ip-172-31-18-140 ~]$ 
+[ec2-user@ip-172-31-18-140 ~]$ find /demo/data -type d -exec sudo chmod 2775 {} + 
+[ec2-user@ip-172-31-18-140 ~]$ find /demo/data -type f -exec sudo chmod 0664 {} + 
+[ec2-user@ip-172-31-18-140 ~]$ ls
+[ec2-user@ip-172-31-18-140 ~]$ cd aws-demos/
+[ec2-user@ip-172-31-18-140 aws-demos ]$ ls
+[ec2-user@ip-172-31-18-140 aws-demos ]$ cd dynamic-website-basic/ 
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ clear
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ node app.js
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ clear
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ sudo iptables -t nat -A PREROUTING -p tcp – dport 80 -j REDIRECT – to-ports 3000
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ node app.js 
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ 
+
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-18-140 ~]$ cd aws-demos/dynamic-website-basic/
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ npm install pm2@latest -g
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ clear
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$ pm2 start app.js
+[ec2-user@ip-172-31-18-140 dynamic-website-basic ]$
